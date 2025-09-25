@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>JuanX | Fragmentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      overflow: hidden;
+    }
 
+    .start-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .start-button {
+      width: 80px;
+      height: 80px;
+      background-color: #ff2e63;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #ff2e63;
+      cursor: pointer;
+      font-size: 2em;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .start-button:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .video-bg iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      top: 40%;
+      transform: translateY(-50%);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #000;
+      opacity: 0.9;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.7;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla inicial -->
+  <div class="start-screen" id="startScreen">
+    <button class="start-button" onclick="iniciar()">▶</button>
+  </div>
+
+  <!-- Video de fondo (oculto al inicio) -->
+  <div class="video-bg hidden" id="videoBg">
+    <iframe 
+      src="https://www.youtube.com/embed/yeR-v41kTw8?autoplay=1&mute=1&controls=0&loop=1&playlist=yeR-v41kTw8&modestbranding=1&showinfo=0" 
+      allow="autoplay" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Contenido (oculto al inicio) -->
+  <div class="content hidden" id="contenido">
+    <h1>Fragmentos</h1>
+    <p>“Me convertí en silencio para no molestar.”</p>
+  </div>
+
+  <script>
+    function iniciar() {
+      document.getElementById('startScreen').style.display = 'none';
+      document.getElementById('videoBg').classList.remove('hidden');
+      document.getElementById('contenido').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
